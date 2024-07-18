@@ -1,13 +1,40 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'health-challenge-tracker';
+export class AppComponent implements OnInit {
+  ngOnInit() {
+    if (!localStorage.getItem('userData')) {
+      const userData = [
+        {
+          id: 1,
+          name: 'John Doe',
+          workouts: [
+            { type: 'Running', minutes: 30 },
+            { type: 'Cycling', minutes: 45 }
+          ]
+        },
+        {
+          id: 2,
+          name: 'Jane Smith',
+          workouts: [
+            { type: 'Swimming', minutes: 60 },
+            { type: 'Running', minutes: 20 }
+          ]
+        },
+        {
+          id: 3,
+          name: 'Mike Johnson',
+          workouts: [
+            { type: 'Yoga', minutes: 50 },
+            { type: 'Cycling', minutes: 40 }
+          ]
+        }
+      ];
+      localStorage.setItem('userData', JSON.stringify(userData));
+    }
+  }
 }

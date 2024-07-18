@@ -1,1 +1,103 @@
-<p>workout-list works!</p>
+<div class="mt-8 p-4">
+
+    <div class="mt-10 flex flex-row mb-4 p-4 space-x-28">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          (input)="applyFilters()"
+          placeholder="Search"
+          class="placeholder-gray-500 placeholder-opacity-100 p-3 pl-4 w-1/2 border-black-300 shadow-sm bg-zinc-200 border-b-2 border-black rounded-t-lg"
+        />
+        <div class="relative bg-zinc-200 w-1/2 rounded-t-lg border-b-2 border-black">
+          <label for="filterType" class="p-2 pl-4 block text-sm font-medium text-gray-700 rounded-md">Filter by Workout Type</label>
+          <select
+            [(ngModel)]="filterType"
+            (change)="applyFilters()"
+            class="appearance-none pl-4 pb-2 w-full border-black-300 shadow-sm bg-zinc-200 pr-8"
+          >
+            <option value="">All</option>
+            <option *ngFor="let type of uniqueWorkoutTypes">{{ type }}</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-6 w-6 font-bold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M7 10l5 5 5-5H7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+
+
+      <table class="table-auto w-full border-collapse shadow-lg bg-slate-50">
+        <thead>
+          <tr>
+            <th class="text-left font-bold px-6 py-4 border-b border-gray-300">Name</th>
+            <th class="text-left font-bold px-6 py-4 border-b border-gray-300">Workouts</th>
+            <th class="text-left font-bold px-6 py-4 border-b border-gray-300">Number of Workouts</th>
+            <th class="text-left font-bold px-6 py-4 border-b border-gray-300">Total Workout Minutes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of paginatedUsers" class="border-b border-gray-300">
+            <td class="px-6 py-4">{{ user.name }}</td>
+            <td class="px-6 py-4">{{ getUserWorkouts(user) }}</td>
+            <td class="px-6 py-4">{{ user.workouts.length }}</td>
+            <td class="px-6 py-4">{{ getTotalWorkoutMinutes(user) }}</td>
+          </tr>
+        </tbody>
+      </table>
+     
+
+  <div class="flex flex-row items-center justify-center mt-4">
+
+    <div>
+      <button
+        (click)="previousPage()"
+        [disabled]="currentPage === 1"
+        class="bg-white text-black py-2 px-4 rounded-md border border-black">
+        << Previous
+      </button>
+    </div>
+  
+    <div class="mx-4">
+      <div class="flex items-center">
+        <div
+          *ngFor="let page of totalPagesArray"
+          [ngClass]="{
+            'border-blue-500': page === currentPage,
+            'border': true,
+            'px-2': true,
+            'py-1': true,
+            'cursor-pointer': true,
+            'rounded-md': true,
+            'mx-1': true
+          }"
+          (click)="goToPage(page)">
+          {{ page }}
+        </div>
+      </div>
+    </div>
+  
+    <div>
+      <button
+        (click)="nextPage()"
+        [disabled]="currentPage === totalPages"
+        class="bg-gray-500 text-white py-2 px-4 rounded-md ml-4">
+        Next >>
+      </button>
+    </div>
+  
+    <div class="ml-4">
+      <div class="flex items-center">
+        <label for="itemsPerPage" class="font-semibold">Items per page:</label>
+        <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="applyFilters()" class="ml-2">
+          <option *ngFor="let option of itemsPerPageOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+    </div>
+  
+  </div>
+  
+  

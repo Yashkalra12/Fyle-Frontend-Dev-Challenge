@@ -5,7 +5,17 @@
   "projects": {
     "health-challenge-tracker": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -99,6 +109,6 @@
     }
   },
   "cli": {
-    "analytics": "6290357d-261d-49f5-af03-411d8936e51d"
+    "analytics": "3fb1d47d-67c8-40c0-b437-2902741d4f97"
   }
 }
