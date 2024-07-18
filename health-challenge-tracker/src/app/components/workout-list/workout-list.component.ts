@@ -11,11 +11,11 @@ export class WorkoutListComponent implements OnInit {
   searchTerm: string = '';
   filterType: string = '';
   currentPage: number = 1;
-  itemsPerPage: number = 5; // Here is the itemsPerPage property
+  itemsPerPage: number = 5; 
   totalPages: number = 1;
   uniqueWorkoutTypes: string[] = [];
   totalPagesArray: number[] = [];
-  itemsPerPageOptions = [5, 10, 15, 20]; // Assuming these are your options
+  itemsPerPageOptions = [5, 10, 15, 20]; 
 
   ngOnInit() {
     this.users = JSON.parse(localStorage.getItem('userData') || '[]');
