@@ -8,7 +8,7 @@ describe('WorkoutListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WorkoutListComponent]
+      declarations: [WorkoutListComponent]
     })
     .compileComponents();
 
