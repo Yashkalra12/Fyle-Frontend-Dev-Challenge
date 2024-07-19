@@ -95,8 +95,6 @@ You can access the live version here:
 │   │   │   │   ├── workout-list
 │   │   │   ├── service
 │   │   │   │   ├── workout.service.ts
-│   │   ├── models
-│   │   │   ├── user.model.ts
 │   ├── assets
 │   ├── styles
 │   │   ├── tailwind.css
