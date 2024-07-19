@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { AddWorkoutComponent } from './components/add-workout/add-workout.component';
-import { WorkoutListComponent } from './components/workout-list/workout-list.component';
+import { AddWorkoutComponent } from './features/components/add-workout/add-workout.component';
+import { WorkoutListComponent } from './features/components/workout-list/workout-list.component';
 
 @NgModule({
   declarations: [
