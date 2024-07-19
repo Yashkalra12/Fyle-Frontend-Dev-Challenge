@@ -72,7 +72,8 @@ This project is a Health Challenge Tracker designed as a single-page application
 
 ## Deployment
 
-The application is hosted on Vercel. You can access the live version here:   <fyle-frontend-dev-challenge-yash-kalra.vercel.app>
+The application is hosted on Vercel.
+You can access the live version here:<[fyle-frontend-dev-challenge-yash-kalra.vercel.app](https://fyle-frontend-dev-challenge.vercel.app/)>
 
 
 ## Screenshot of Application
