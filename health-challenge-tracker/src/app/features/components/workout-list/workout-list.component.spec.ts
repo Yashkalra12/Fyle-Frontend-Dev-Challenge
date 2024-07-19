@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms'; // Ensure FormsModule is imported
+import { FormsModule } from '@angular/forms'; 
 import { WorkoutListComponent } from './workout-list.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
@@ -10,8 +10,8 @@ describe('WorkoutListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [WorkoutListComponent],
-      imports: [FormsModule], // Import FormsModule to avoid ngModel errors
-      schemas: [NO_ERRORS_SCHEMA] // Ignore unknown elements and properties
+      imports: [FormsModule],
+      schemas: [NO_ERRORS_SCHEMA] 
     }).compileComponents();
 
     fixture = TestBed.createComponent(WorkoutListComponent);
